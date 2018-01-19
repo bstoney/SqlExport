@@ -1,0 +1,87 @@
+﻿<UserControl x:Class="SqlExport.View.ObjectView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModel="clr-namespace:SqlExport.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <viewModel:ObjectViewViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TreeView x:Name="TreeView" Grid.ColumnSpan="2" ItemsSource="{Binding Connections}"
+                             VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling"
+                             HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+            <TreeView.Resources>
+                <ContextMenu x:Key="ContextMenu">
+                    <MenuItem Header="Load/Reload" Command="{Binding LoadCommand}"/>
+                    <MenuItem Header="Item list to Clipboard" Command="{Binding GetItemListCommand}"/>
+                    <MenuItem Header="Item source to Clipboard" Command="{Binding GetSourceCommand}"/>
+                    <MenuItem Header="Sort by Default Order" Command="{Binding SortCommand}" 
+                              CommandParameter="{x:Static viewModel:ObjectViewItemViewModel.DefaultSortOrder}"/>
+                    <MenuItem Header="Sort Alphabetically" Command="{Binding SortCommand}" 
+                              CommandParameter="{x:Static viewModel:ObjectViewItemViewModel.AlphanumericSortOrder}"/>
+                    <MenuItem Header="Remove" Command="{Binding RemoveCommand}"/>
+                </ContextMenu>
+            </TreeView.Resources>
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}"/>
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                    <Setter Property="Visibility" Value="{Binding IsVisible, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Items}" DataType="{x:Type viewModel:ObjectViewItemViewModel}">
+                    <Grid PreviewMouseLeftButtonDown="ObjectView_PreviewMouseLeftButtonDown" MouseMove="ObjectView_MouseMove" 
+                          ContextMenu="{StaticResource ContextMenu}" ContextMenuOpening="ContextMenu_ContextMenuOpening">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Style="{Binding ImageStyleKey, Converter={StaticResource StringToResourceConverter}}"/>
+                        <Image Source="{StaticResource QueryRunningBitmap}" Stretch="Uniform" HorizontalAlignment="Right" VerticalAlignment="Bottom" 
+                               Height="10" Style="{StaticResource RunningAnimation}" Visibility="{Binding IsLoading, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                        <TextBlock Grid.Column="1" Text="{Binding}" Margin="5,0,5,1"/>
+                    </Grid>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <TextBox Grid.Row="1" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Margin="0,3,0,3">
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <TextBlock Grid.Column="1" Text=" Search" Foreground="LightGray" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+            <TextBox.InputBindings>
+                <KeyBinding Command="{Binding SearchCommand}" Key="Enter"/>
+            </TextBox.InputBindings>
+        </TextBox>
+    </Grid>
+</UserControl>

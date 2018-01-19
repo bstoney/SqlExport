@@ -1,0 +1,26 @@
+﻿<Application x:Class="SqlExport.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:SqlExport="clr-namespace:SqlExport"
+             mc:Ignorable="d">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/CommonResources.xaml"/>
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/Common.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/ClosableTabItem.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/ScrollableTabControl.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/Buttons.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/LabeledImage.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/Popup.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/SchemaIcons.xaml" />
+                <ResourceDictionary Source="/SQLExport;component/Resources/Styles/ComboBox.xaml" />
+                <!--<ResourceDictionary Source="/SQLExport;component/DataVirtualization/Style.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+
+            <SqlExport:Locator x:Key="Locator" d:IsDataSource="True"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

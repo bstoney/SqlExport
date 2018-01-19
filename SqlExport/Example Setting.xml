@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SqlExport>
+  <CurrentDirectory></CurrentDirectory>
+  <Editable>False</Editable>
+  <Transactional>True</Transactional>
+  <SingleInstance>False</SingleInstance>
+  <CommandTimeout>30</CommandTimeout>
+  <EditorFont Name="Consolas" Size="9.75" Weight="Regular" />
+  <TabWidth>4</TabWidth>
+  <WordWrap>False</WordWrap>
+  <LineNumbers>True</LineNumbers>
+  <WindowState>
+    <WindowSize X="0" Y="0" Width="800" Height="600" />
+    <FormState>Normal</FormState>
+  </WindowState>
+  <DatabaseSettings>
+    <CurrentDatabase></CurrentDatabase>
+    <Databases>
+    </Databases>
+  </DatabaseSettings>
+  <RecentFiles>
+    <File />
+    <File />
+    <File />
+    <File />
+    <File />
+    <File />
+    <File />
+    <File />
+  </RecentFiles>
+  <Export>
+    <Type>Csv</Type>
+    <Options>
+      <Csv>
+        <ExportHeaders>True</ExportHeaders>
+        <TextEncoding>utf-8</TextEncoding>
+      </Csv>
+    </Options>
+  </Export>
+  <Adapters>
+    <ConnectionAdapters>
+      <Linq>SqlExport.Data.Adapters.Linq.ConnectionInterface, SqlExport.Data.Adapters.Linq</Linq>
+      <SqLite>SqlExport.Data.Adapters.SqLite.ConnectionInterface, SqlExport.Data.Adapters.SqLite</SqLite>
+      <MsSql>SqlExport.Data.Adapters.MsSql.ConnectionInterface, SqlExport.Data.Adapters.MsSql</MsSql>
+      <Oracle>SqlExport.Data.Adapters.Oracle.ConnectionInterface, SqlExport.Data.Adapters.Oracle</Oracle>
+      <Sybase>SqlExport.Data.Adapters.Sybase.ConnectionInterface, SqlExport.Data.Adapters.Sybase</Sybase>
+      <Odbc>SqlExport.Data.Adapters.Odbc.ConnectionInterface, SqlExport.Data.Adapters.Odbc</Odbc>
+    </ConnectionAdapters>
+    <ExportAdapters>
+      <Csv>SqlExport.Export.Adapters.Csv, SqlExport.Export.Adapters</Csv>
+      <MsSql>SqlExport.Data.Adapters.MsSql.InsertScript, SqlExport.Data.Adapters.MsSql</MsSql>
+    </ExportAdapters>
+  </Adapters>
+</SqlExport>

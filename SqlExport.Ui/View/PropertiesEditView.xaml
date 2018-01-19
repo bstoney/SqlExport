@@ -1,0 +1,156 @@
+﻿<UserControl x:Class="SqlExport.View.PropertiesEditView"
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:view="clr-namespace:SqlExport.View" 
+             xmlns:Converters="clr-namespace:SqlExport.View.Converters"
+             mc:Ignorable="d"
+                x:Name="UserControl"
+                d:DesignWidth="640" d:DesignHeight="480">
+    <UserControl.Resources>
+
+        <Converters:PropertyItemTypeToControlConverter x:Key="PropertyItemTypeToControlConverter"/>
+
+        <HierarchicalDataTemplate x:Key="PropertiesDataTemplate" ItemsSource="{Binding Properties}">
+            <Grid>
+                <Border BorderThickness="0" Padding="2" Margin="0" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+                    <TextBlock TextWrapping="Wrap" FontWeight="Bold" d:LayoutOverrides="Width, Height" Text="{Binding Category}" VerticalAlignment="Center" />
+                </Border>
+            </Grid>
+            <HierarchicalDataTemplate.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0,1,0,1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition SharedSizeGroup="Name" Width="Auto"/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="NoWrap" Text="{Binding DisplayName}" Padding="2,0,2,0" Margin="0,0,3,0" d:LayoutOverrides="Width, Height" VerticalAlignment="Center"/>
+                        <GridSplitter Width="3" Margin="0,-1,0,-1"/>
+                        <ContentPresenter Grid.Column="1" Content="{Binding Converter={StaticResource PropertyItemTypeToControlConverter}}" VerticalAlignment="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </HierarchicalDataTemplate.ItemTemplate>
+        </HierarchicalDataTemplate>
+
+        <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Width" Value="19"/>
+            <Setter Property="Height" Value="19"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border Background="Transparent">
+                            <Border SnapsToDevicePixels="true" Width="18" Height="18">
+                                <Path x:Name="ExpandPath" Stroke="Black" StrokeThickness="1.75" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
+                                    <Path.Data>
+                                        <GeometryGroup>
+                                            <EllipseGeometry Center="8,8" RadiusX="8" RadiusY="8"/>
+                                            <PathGeometry>
+                                                <PathGeometry.Figures>
+                                                    <PathFigure StartPoint="4,9">
+                                                        <LineSegment Point="8,5"/>
+                                                        <LineSegment Point="12,9"/>
+                                                    </PathFigure>
+                                                </PathGeometry.Figures>
+                                            </PathGeometry>
+                                        </GeometryGroup>
+                                    </Path.Data>
+                                </Path>
+                            </Border>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Data" TargetName="ExpandPath">
+                                    <Setter.Value>
+                                        <GeometryGroup>
+                                            <EllipseGeometry Center="8,8" RadiusX="8" RadiusY="8"/>
+                                            <PathGeometry>
+                                                <PathGeometry.Figures>
+                                                    <PathFigure StartPoint="4,7">
+                                                        <LineSegment Point="8,11"/>
+                                                        <LineSegment Point="12,7"/>
+                                                    </PathFigure>
+                                                </PathGeometry.Figures>
+                                            </PathGeometry>
+                                        </GeometryGroup>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TreeViewItemStyle" TargetType="{x:Type TreeViewItem}">
+            <Setter Property="IsExpanded" Value="True"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+            <Setter Property="Padding" Value="1,0,0,0"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="FocusVisualStyle" Value="{StaticResource TreeViewItemFocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                        <Grid MaxWidth="{Binding ViewportWidth, ElementName=_tv_scrollviewer_}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}"/>
+                            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Column="1" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ItemsPresenter x:Name="ItemsHost" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsExpanded" Value="false">
+                                <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter Property="Visibility" TargetName="Expander" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="VirtualizingStackPanel.IsVirtualizing" Value="true">
+                    <Setter Property="ItemsPanel">
+                        <Setter.Value>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel/>
+                            </ItemsPanelTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <TreeView Grid.ColumnSpan="2" 
+                  Grid.IsSharedSizeScope="True"
+                  HorizontalContentAlignment="Stretch"
+                  Padding="0,0,2,0"
+                  BorderThickness="0"
+                  DataContext="{Binding RelativeSource={RelativeSource AncestorType=UserControl}}"
+                  ItemsSource="{Binding Properties}" 
+                  ItemTemplate="{DynamicResource PropertiesDataTemplate}" 
+                  ItemContainerStyle="{DynamicResource TreeViewItemStyle}"/>
+    </Grid>
+</UserControl>

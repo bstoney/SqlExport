@@ -26,7 +26,8 @@ are no tests. I hope someone else can finds something useful here.
   * Text - custom SQL for reading a folder containing CSV or other formatted text data
   * Linq - limited C# Linq syntax support
 
-* Supports adding new data sources via adapter interfaces
+* Multiple export formats
+* Supports adding new data sources and export formats via adapter interfaces
 * Large result sets
 * Hopefully low memory foot print
 * GUI written in WPF and Windows Forms

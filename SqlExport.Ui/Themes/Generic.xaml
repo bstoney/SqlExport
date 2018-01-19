@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/SqlExport.Ui;component/ProjectDataSources.xaml"/>
+        <ResourceDictionary Source="/SqlExport.Ui;component/Resources/Styles/Common.xaml" />
+        <ResourceDictionary Source="/SqlExport.Ui;component/Resources/Styles/ClosableTabItem.xaml" />
+        <ResourceDictionary Source="/SqlExport.Ui;component/Resources/Styles/ScrollableTabControl.xaml" />
+        <ResourceDictionary Source="/SqlExport.Ui;component/Resources/Styles/Buttons.xaml" />
+        <ResourceDictionary Source="/SqlExport.Ui;component/Resources/Styles/LabeledImage.xaml" />
+        <ResourceDictionary Source="/SqlExport.Ui;component/Resources/Styles/Popup.xaml" />
+        <ResourceDictionary Source="/SqlExport.Ui;component/DataVirtualization/Style.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

@@ -1,0 +1,28 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="clr-namespace:SqlExport.ViewModel"
+		xmlns:view="clr-namespace:SqlExport.View"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+		xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WPF4" x:Name="window" x:Class="SqlExport.ApplicationMessages"
+        Title="ApplicationMessages" Height="300" Width="300">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="ProjectDataSources.xaml"/>
+			</ResourceDictionary.MergedDictionaries>
+			<vm:ApplicationMessagesViewModel x:Key="ViewModel" />
+		</ResourceDictionary>
+	</Window.Resources>
+	<Window.DataContext>
+		<Binding Path="ApplicationMessages" Source="{StaticResource Locator}"/>
+	</Window.DataContext>
+	<i:Interaction.Triggers>
+		<i:EventTrigger EventName="Loaded">
+			<GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding InitialiseWindowCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=window}"/>
+		</i:EventTrigger>
+	</i:Interaction.Triggers>
+    <Grid x:Name="LayoutRoot">
+		<view:MessageList x:Name="lstMessages" Margin="5" /> <!--ScopeToken="{Binding ScopeToken, Mode=OneWay}" />-->
+	</Grid>
+</Window>

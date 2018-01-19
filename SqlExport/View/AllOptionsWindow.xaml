@@ -1,0 +1,84 @@
+﻿<view:DialogViewBase x:Class="SqlExport.View.AllOptionsWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                     xmlns:viewModel="clr-namespace:SqlExport.ViewModel"
+                     xmlns:options="clr-namespace:SqlExport.Views.Options"
+                     xmlns:converters="clr-namespace:SqlExport.View.Converters" 
+                     xmlns:view="clr-namespace:SqlExport.View"
+                     Icon="/SQLExport;component/SqlExport.ico"
+                     Title="All Options" Height="450" Width="750">
+    <Window.DataContext>
+        <viewModel:AllOptionsViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <converters:OptionViewModelToControlConverter x:Key="OptionViewModelToControlConverter"/>
+        <converters:PropertyViewModelToControlConverter x:Key="PropertyViewModelToControlConverter"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TreeView x:Name="OptionsList" ItemsSource="{Binding Options}" SelectedItemChanged="TreeViewSelectedItemChanged">
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                    <Setter Property="IsExpanded" Value="True"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                    <TextBlock Text="{Binding DisplayName}"/>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <GridSplitter VerticalAlignment="Stretch" Width="3" />
+        <StackPanel Grid.Column="1" Grid.IsSharedSizeScope="True">
+            <TextBlock Text="{Binding SelectedOption.Path}" Padding="3,0,3,3" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            <Grid Margin="3" Visibility="{Binding SelectedOption.HasChildren, Converter={StaticResource InverseBooleanToVisibilityConverter}}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="Key"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Value" Margin="0,0,3,0"/>
+                <ContentPresenter Grid.Column="1" Margin="0,0,3,0" Content="{Binding SelectedOption,Converter={StaticResource OptionViewModelToControlConverter}}" VerticalAlignment="Center"/>
+            </Grid>
+            <TextBlock Text="Properties" Padding="3,0,3,3" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" 
+                       Visibility="{Binding SelectedOption.HasProperties, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <ItemsControl ItemsSource="{Binding SelectedOption.Properties}" HorizontalContentAlignment="Stretch" BorderThickness="0" Margin="3"
+                      Visibility="{Binding SelectedOption.HasProperties, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="{x:Type ContentPresenter}">
+                        <Setter Property="Margin" Value="0"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="Key"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Name}" Margin="0,0,3,0"/>
+                            <ContentPresenter Grid.Column="1" Margin="0,0,0,3" Content="{Binding Converter={StaticResource PropertyViewModelToControlConverter}}" VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource DialogButtons}" Content="_View File" HorizontalAlignment="Left" Command="{Binding OpenFileCommand}"/>
+            <Button Grid.Column="1" Style="{StaticResource DialogButtons}" Command="{Binding OkCommand}" Content="_Ok" IsDefault="True" Margin="0,0,3,0"/>
+            <Button Grid.Column="2" Style="{StaticResource DialogButtons}" Content="_Cancel" IsCancel="True"/>
+        </Grid>
+    </Grid>
+</view:DialogViewBase>

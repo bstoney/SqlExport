@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="SchemaServerStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource ServerBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaDatabaseStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource DatabaseBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaFolderStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource FolderBitmap}"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=IsExpanded}" Value="True">
+                <Setter Property="Source" Value="{StaticResource FolderOpenBitmap}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="SchemaTableStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource DatabaseTableBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaViewStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource TableFindBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaColumnStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource BlackBulletBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaProcedureStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource ScriptGearBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaFunctionStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource FunctionBitmap}"/>
+    </Style>
+
+    <Style x:Key="SchemaUnknownStyle" TargetType="{x:Type Image}">
+        <Setter Property="Source" Value="{StaticResource WhitePageBitmap}"/>
+    </Style>
+
+</ResourceDictionary>
