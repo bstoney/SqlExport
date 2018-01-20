@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1FA998EA-5895-4976-9484-E83FD9599F26}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlExport.Common</RootNamespace>
+    <AssemblyName>SqlExport.Common</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Monads">
+      <HintPath>..\packages\Monads.1.1.5.0\lib\net40\Monads.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConnectionAdapterHelper.cs" />
+    <Compile Include="Data\ConnectionMessageHandler.cs" />
+    <Compile Include="DatabaseDetails.cs" />
+    <Compile Include="Data\ICommandAdapter.cs" />
+    <Compile Include="Editor\Capitalisation.cs" />
+    <Compile Include="Editor\CommentSyntax.cs" />
+    <Compile Include="Extensions\ExtensionOption.cs" />
+    <Compile Include="Options\INotifyOptionChanged.cs" />
+    <Compile Include="Options\OptionBase.cs" />
+    <Compile Include="Options\OptionName.cs" />
+    <Compile Include="Options\OptionPath.cs" />
+    <Compile Include="Options\OptionProperty.cs" />
+    <Compile Include="Options\OptionsChangedMessage.cs" />
+    <Compile Include="Options\OptionType.cs" />
+    <Compile Include="IConnectionAdapter.cs" />
+    <Compile Include="Data\IDataResult.cs" />
+    <Compile Include="Data\IDbCommandAdapter.cs" />
+    <Compile Include="Data\IRelationalSchemaAdapter.cs" />
+    <Compile Include="Data\ISchemaAdapter.cs" />
+    <Compile Include="Data\ISchemaItem.cs" />
+    <Compile Include="Data\IStatementTemplate.cs" />
+    <Compile Include="Editor\ISyntaxDefinition.cs" />
+    <Compile Include="Data\MessageType.cs" />
+    <Compile Include="Data\SchemaItemType.cs" />
+    <Compile Include="Data\StatementTemplateCollection.cs" />
+    <Compile Include="DependencyResolver.cs" />
+    <Compile Include="Extensions\IExtension.cs" />
+    <Compile Include="IOptionLoader.cs" />
+    <Compile Include="IOptions.cs" />
+    <Compile Include="Options\Option.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="OptionsLoader.cs" />
+    <Compile Include="Options\EnumOptionAttribute.cs" />
+    <Compile Include="Options\OptionAttribute.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Options\OptionExtensions.cs" />
+    <Compile Include="Options\SelectionOptionAttribute.cs" />
+    <Compile Include="PropertiesDictionary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ApplicationEnvironment.cs" />
+    <Compile Include="Extensions\ExtensionExtensions.cs" />
+    <Compile Include="SqlExportException.cs" />
+    <Compile Include="Util\ReflectionExtensions.cs" />
+    <Compile Include="XmlNodeExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

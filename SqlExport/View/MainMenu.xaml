@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="SqlExport.View.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             DataContext="{Binding MainMenuViewModel, Source={StaticResource Locator}}"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Menu IsMainMenu="True">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New" Icon="{StaticResource NewDocumentIcon}" Command="{Binding ApplicationCommands.NewQueryCommand}" />
+                <MenuItem Header="_Open" Icon="{StaticResource OpenIcon}" Command="{Binding ApplicationCommands.OpenQueryCommand}" />
+                <MenuItem Header="_Close" Icon="{StaticResource CloseIcon}" Command="{Binding ApplicationCommands.CloseQueryCommand}" />
+                <MenuItem Header="_Save" Icon="{StaticResource SaveIcon}" Command="{Binding ApplicationCommands.SaveQueryCommand}" />
+                <MenuItem Header="Save _As" Command="{Binding ApplicationCommands.SaveQueryAsCommand}" />
+                <MenuItem Header="Save Temp" Command="{Binding ApplicationCommands.SaveTempQueriesCommand}" />
+                <Separator />
+                <MenuItem Header="_Recent Files" ItemsSource="{Binding RecentFiles}">
+                    <MenuItem.ItemContainerStyle>
+                        <Style TargetType="MenuItem">
+                            <Setter Property="Command" Value="{Binding Command}"/>
+                            <Setter Property="CommandParameter" Value="{Binding Path}"/>
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                    <MenuItem.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </MenuItem.ItemTemplate>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="E_xit" Command="{Binding ApplicationCommands.ExitCommand}" />
+            </MenuItem>
+            <MenuItem Header="_View">
+                <MenuItem Header="_Options" Command="{Binding ShowOptionsCommand}" />
+                <MenuItem Header="_All Options" Command="{Binding ShowAllOptionsCommand}" />
+                <MenuItem Header="Application _Errors" Command="{Binding ShowErrorsCommand}" />
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_About" Command="{Binding ShowAboutCommand}" />
+            </MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>

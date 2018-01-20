@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="SqlExport.View.EditorView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:formsUi="clr-namespace:SqlExport.Ui"
+             xmlns:viewModel="clr-namespace:SqlExport.ViewModel" 
+             xmlns:view="clr-namespace:SqlExport.View"
+             xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignInstance viewModel:EditorViewViewModel}">
+    <UserControl.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Undo" Icon="{StaticResource ArrowUndoIcon}" Command="{Binding UndoCommand}"/>
+            <MenuItem Header="Redo" Icon="{StaticResource ArrowRedoIcon}" Command="{Binding RedoCommand}"/>
+            <Separator/>
+            <MenuItem Header="Cut" Command="{Binding CutCommand}"/>
+            <MenuItem Header="Copy" Command="{Binding CopyCommand}"/>
+            <MenuItem Header="Copy Special">
+                <MenuItem Header="Copy VB String" Command="{Binding CopyCommand}" CommandParameter="{x:Static viewModel:EditorViewViewModel.SpecialVb}"/>
+                <MenuItem Header="Copy C# String" Command="{Binding CopyCommand}" CommandParameter="{x:Static viewModel:EditorViewViewModel.SpecialCsharp}" />
+                <MenuItem Header="Copy Without Formatting" Command="{Binding CopyCommand}" CommandParameter="{x:Static viewModel:EditorViewViewModel.SpecialUnformatted}" />
+            </MenuItem>
+            <MenuItem Header="Paste" Command="{Binding PasteCommand}"/>
+            <MenuItem Header="Paste Special">
+                <MenuItem Header="Paste VB String" Command="{Binding PasteCommand}" CommandParameter="{x:Static viewModel:EditorViewViewModel.SpecialVb}"/>
+                <MenuItem Header="Paste C# String" Command="{Binding PasteCommand}" CommandParameter="{x:Static viewModel:EditorViewViewModel.SpecialCsharp}"/>
+            </MenuItem>
+            <MenuItem Header="Delete" Command="{Binding DeleteCommand}"/>
+            <Separator/>
+            <MenuItem Header="Select All" Command="{Binding SelectAllCommand}"/>
+            <MenuItem Header="Auto Format" Command="{Binding AutoFormatCommand}"/>
+        </ContextMenu>
+    </UserControl.ContextMenu>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Padding="3" BorderBrush="Black" BorderThickness="0,0,0,1" Visibility="{Binding IsFinding, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBox x:Name="FindText" Text="{Binding FindText, UpdateSourceTrigger=PropertyChanged}" Width="150">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Enter" Command="{Binding FindCommand}"/>
+                        <KeyBinding Key="Escape" Command="{Binding CancelFindCommand}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+                <Button Content="{StaticResource FindIcon}" Command="{Binding FindCommand}" Margin="5,0,0,0"/>
+            </StackPanel>
+        </Border>
+        <WindowsFormsHost Grid.Row="1" x:Name="EditorHost"/>
+    </Grid>
+</UserControl>

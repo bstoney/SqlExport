@@ -1,0 +1,11 @@
+﻿<v:DialogViewBase
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:vm="clr-namespace:SqlExport.ViewModel"
+		xmlns:v="clr-namespace:SqlExport.View"
+        x:Name="window" x:Class="SqlExport.View.ApplicationMessages"
+        Title="Application Messages" Height="353" Width="408">
+    <Grid x:Name="LayoutRoot">
+        <v:MessageList Margin="5" DataContext="{Binding MessageListDataContext, RelativeSource={RelativeSource AncestorType=v:DialogViewBase}}" />
+    </Grid>
+</v:DialogViewBase>

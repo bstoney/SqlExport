@@ -1,0 +1,733 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BC7ABD0-AD19-4E80-9BE9-2676FBB37B85}</ProjectGuid>
+    <ApplicationIcon>SqlExport.ico</ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SqlExport</RootNamespace>
+    <AssemblyName>SQLExport</AssemblyName>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <TargetFrameworkProfile />
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <TargetZone>LocalIntranet</TargetZone>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://sqlexport.codeplex.com/releases/clickonce/</InstallUrl>
+    <SupportUrl>http://sqlexport.codeplex.com/</SupportUrl>
+    <ProductName>SqlExport</ProductName>
+    <PublisherName>SqlExport</PublisherName>
+    <MinimumRequiredVersion>3.0.1.56</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>57</ApplicationRevision>
+    <ApplicationVersion>3.0.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverFlowUnderFlow>false</CheckForOverFlowUnderFlow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;DEBUG;MultiSelectTreeview</DefineConstants>
+    <DefineTrace>true</DefineTrace>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverFlowUnderFlow>false</CheckForOverFlowUnderFlow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE;MultiSelectTreeview</DefineConstants>
+    <DefineTrace>true</DefineTrace>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;MultiSelectTreeview</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;MultiSelectTreeview</DefineConstants>
+    <BaseAddress>285212672</BaseAddress>
+    <FileAlignment>4096</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FileAssociation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\FileAssociation.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WPF45">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.Extras.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WPF45">
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\GalaSoft.MvvmLight.WPF45.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Monads">
+      <HintPath>..\packages\Monads.1.1.5.0\lib\net40\Monads.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\Net40\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\Net40\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\Net40\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\Net40\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\packages\Rx-Xaml.2.1.30214.0\lib\Net40\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+      <Name>System.Runtime.Serialization.Formatters.Soap</Name>
+    </Reference>
+    <Reference Include="System.Web.RegularExpressions">
+      <Name>System.Web.RegularExpressions</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MvvmLightLibs.4.1.27.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsFormsIntegration">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>Libs\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Editor\EditorControlExtensions.cs" />
+    <Compile Include="Editor\EditorKey.cs" />
+    <Compile Include="Logic\ImageExtensions.cs" />
+    <Compile Include="Logic\OptionsExtensions.cs" />
+    <Compile Include="Logic\TextHelper.cs" />
+    <Compile Include="Logic\ViewModelExtensions.cs" />
+    <Compile Include="Logic\WindowsFormsExtensions.cs" />
+    <Compile Include="Messages\FocusFindMessage.cs" />
+    <Compile Include="Messages\OptionSelectedMessage.cs" />
+    <Compile Include="ViewModel\EditorViewViewModel.cs" />
+    <Compile Include="ViewModel\EditorViewViewModel.Properties.cs" />
+    <Compile Include="ViewModel\OptionsViewModel.cs" />
+    <Compile Include="View\AllOptionsWindow.xaml.cs">
+      <DependentUpon>AllOptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\SampleConnectionAdapter.cs" />
+    <Compile Include="SampleData\SampleMainWindowViewModel.cs" />
+    <Compile Include="SampleData\SampleQueryViewModel.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\Options\SelectionOptionControlCreator.cs" />
+    <Compile Include="ViewModel\Options\NumericOptionControlCreator.cs" />
+    <Compile Include="ViewModel\Options\BooleanOptionControlCreator.cs" />
+    <Compile Include="ViewModel\Options\OptionControlCreator.cs" />
+    <Compile Include="ViewModel\ObjectViewItemViewModel.Properties.cs" />
+    <Compile Include="ViewModel\ObjectViewItemViewModel.cs" />
+    <Compile Include="ViewModel\ObjectViewViewModel.cs" />
+    <Compile Include="ViewModel\Options\TextOptionControlCreator.cs" />
+    <Compile Include="ViewModel\OptionViewModel.cs" />
+    <Compile Include="View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ApplicationMessages.xaml.cs">
+      <DependentUpon>ApplicationMessages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\ErrorDialogLogic.cs" />
+    <Compile Include="Logic\ExportHelper.cs" />
+    <Compile Include="Logic\ExtensionExtensions.cs" />
+    <Compile Include="Logic\ViewExtensions.cs" />
+    <Compile Include="Logic\WindowExtensions.cs" />
+    <Compile Include="CloseableTabItem.cs" />
+    <Compile Include="ConnectionDialog.xaml.cs">
+      <DependentUpon>ConnectionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\GetSelectedQueryMessage.cs" />
+    <Compile Include="Logic\TemporaryQueriesLogic.cs" />
+    <Compile Include="ViewModel\SelectionPropertyItem.cs" />
+    <Compile Include="View\Converters\NullToBooleanConverter.cs" />
+    <Compile Include="View\Converters\PropertyViewModelToControlConverter.cs" />
+    <Compile Include="View\Converters\OptionViewModelToControlConverter.cs" />
+    <Compile Include="View\Converters\StringToResourceConverter.cs" />
+    <Compile Include="View\DialogViewBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\EditorView.xaml.cs">
+      <DependentUpon>EditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\LabeledImage.cs" />
+    <Compile Include="Messages\AddConnectionMessage.cs" />
+    <Compile Include="Messages\ApplicationDisplayMessage.cs" />
+    <Compile Include="Messages\ClearConnectionsMessage.cs" />
+    <Compile Include="Messages\CloseWindow.cs" />
+    <Compile Include="Messages\DialogCancelMessage.cs" />
+    <Compile Include="Messages\DialogOkMessage.cs" />
+    <Compile Include="Messages\DisplayMessage.cs" />
+    <Compile Include="Messages\DisplayMessageType.cs" />
+    <Compile Include="Messages\ErrorSelectedMessage.cs" />
+    <Compile Include="Messages\ExportCompletedMessage.cs" />
+    <Compile Include="Messages\ExportResultsMessage.cs" />
+    <Compile Include="Messages\ExportStartedMessage.cs" />
+    <Compile Include="Messages\GetCellValueHandler.cs" />
+    <Compile Include="Messages\GetDataResultMessage.cs" />
+    <Compile Include="Messages\GetMainWindowMessage.cs" />
+    <Compile Include="Messages\GetSelectedDatabase.cs" />
+    <Compile Include="Messages\InitialiseDataViewMessage.cs" />
+    <Compile Include="Messages\NextQueryMessage.cs" />
+    <Compile Include="Messages\PreviousQueryMessage.cs" />
+    <Compile Include="Messages\QueryRunningMessage.cs" />
+    <Compile Include="Messages\QueryStoppedMessage.cs" />
+    <Compile Include="Messages\RunQueryMessage.cs" />
+    <Compile Include="Messages\SaveQueryAsMessage.cs" />
+    <Compile Include="Messages\SaveQueryMessage.cs" />
+    <Compile Include="Messages\SelectedResultSetChanged.cs" />
+    <Compile Include="Messages\SetDatabaseMessage.cs" />
+    <Compile Include="Messages\SetDataResultMessage.cs" />
+    <Compile Include="Messages\SetPropertiesMessage.cs" />
+    <Compile Include="Messages\ShowMessagesMessage.cs" />
+    <Compile Include="Messages\StatusChangedMessage.cs" />
+    <Compile Include="Messages\StatusPanel\SetElapsedTimeMessage.cs" />
+    <Compile Include="Messages\StatusPanel\CaretChangedMessage.cs" />
+    <Compile Include="Messages\StatusPanel\SetRecordCountMessage.cs" />
+    <Compile Include="Messages\StatusPanel\SetStatusMessage.cs" />
+    <Compile Include="Messages\StopQueryMessage.cs" />
+    <Compile Include="Messages\UnhandledExceptionMessage.cs" />
+    <Compile Include="Messages\UnloadDataMessage.cs" />
+    <Compile Include="PathButton.cs" />
+    <Compile Include="Ui\ContextMenuHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ui\IContextMenuProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ui\MultiSelectTreeview.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Ui\ObjectNodeData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModel\QueryViewModel.Properties.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.SelectedQueryHandling.cs" />
+    <Compile Include="View\ObjectView.xaml.cs">
+      <DependentUpon>ObjectView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\OptionsWindow.xaml.cs">
+      <DependentUpon>OptionsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ResultsPanel.xaml.cs">
+      <DependentUpon>ResultsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ScopeMessageToken.cs" />
+    <Compile Include="ScrollableTabControl.cs" />
+    <Compile Include="Tomers.WPF.DataVirtualization.Data\DataVirtualizationCollectionView.cs" />
+    <Compile Include="Tomers.WPF.DataVirtualization.Data\HugeCollection.cs" />
+    <Compile Include="Tomers.WPF.DataVirtualization.Data\IDataVirtualizationItemSponsor.cs" />
+    <Compile Include="ViewModel\BindableStaticResource.cs" />
+    <Compile Include="ViewModel\BooleanPropertyItem.cs" />
+    <Compile Include="ViewModel\DataViewViewModel.cs" />
+    <Compile Include="ViewModel\ExportDialogViewModel.cs" />
+    <Compile Include="ViewModel\FilePropertyItem.cs" />
+    <Compile Include="ViewModel\MessageItemViewModel.cs" />
+    <Compile Include="ViewModel\MessageListViewModel.cs" />
+    <Compile Include="ViewModel\NumericPropertyItem.cs" />
+    <Compile Include="ViewModel\PropertyItem.cs" />
+    <Compile Include="ViewModel\QueryDetails.cs" />
+    <Compile Include="ViewModel\QueryViewModel.cs" />
+    <Compile Include="ViewModel\ResultsPanelViewModel.cs" />
+    <Compile Include="ViewModel\SafeObservable.cs" />
+    <Compile Include="ViewModel\StatusPanelViewModel.cs" />
+    <Compile Include="ViewModel\TextPropertyItem.cs" />
+    <Compile Include="View\Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="View\Converters\ImageToBitmapImageConverter.cs" />
+    <Compile Include="View\Converters\PropertyItemTypeToControlConverter.cs" />
+    <Compile Include="View\Converters\DataValueConverter.cs" />
+    <Compile Include="View\DataViewDataGrid.xaml.cs">
+      <DependentUpon>DataViewDataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataViewDataGridView.xaml.cs">
+      <DependentUpon>DataViewDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DataViewListView.xaml.cs">
+      <DependentUpon>DataViewListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ExportDialog.xaml.cs">
+      <DependentUpon>ExportDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\IDataView.cs" />
+    <Compile Include="View\ListExtenders.cs" />
+    <Compile Include="View\MessageList.xaml.cs">
+      <DependentUpon>MessageList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PropertiesEditView.xaml.cs">
+      <DependentUpon>PropertiesEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QueryView.xaml.cs">
+      <DependentUpon>QueryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Converters\DatabaseColourValueConverter.cs" />
+    <Compile Include="View\Converters\ConnectionDescriptionValueConverter.cs" />
+    <Compile Include="View\Converters\ElapsedTimeValueConverter.cs" />
+    <Compile Include="View\Converters\RecordCountValueConverter.cs" />
+    <Compile Include="View\Converters\CaretToSelectedTextValueConverter.cs" />
+    <Compile Include="View\StatusPanelView.xaml.cs">
+      <DependentUpon>StatusPanelView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\AllOptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\SchemaIcons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ApplicationMessages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ConnectionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ApplicationCommands.cs" />
+    <Compile Include="Locator.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\Styles\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\ClosableTabItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\ComboBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Common.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\LabeledImage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\Popup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles\ScrollableTabControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\EditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ObjectView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\OptionsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResultsPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PropertiesEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DataViewDataGrid.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DataViewDataGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DataViewListView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\ExportDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\MessageList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\QueryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StatusPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApiHelper.cs" />
+    <Compile Include="Messages\AppExitingMessage.cs" />
+    <Compile Include="Messages\AppStartingMessage.cs" />
+    <Compile Include="Messages\CloseQueryMessage.cs" />
+    <Compile Include="Messages\ExitAppMessage.cs" />
+    <Compile Include="Messages\OpenQueryMessage.cs" />
+    <Compile Include="Messages\SaveTempQueriesMessage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DefaultOptions.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.Properties.cs" />
+    <Compile Include="ViewModel\MainMenuViewModel.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="ViewModel\AllOptionsViewModel.cs" />
+    <Compile Include="View\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\CommentStyle.cs" />
+    <Compile Include="Editor\DefaultEditor.cs" />
+    <Compile Include="Editor\EditorStyle.cs" />
+    <Compile Include="Editor\Style.cs" />
+    <Compile Include="Editor\WordStyle.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="ISingleInstanceForm.cs" />
+    <Compile Include="SerialHelper.cs" />
+    <Compile Include="Colour.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SingleInstance.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Editor\TextFinder.cs" />
+    <Compile Include="View\Options\ProgramOptionsView.xaml.cs">
+      <DependentUpon>ProgramOptionsView.xaml</DependentUpon>
+    </Compile>
+    <Resource Include="Resources\server.png" />
+    <Resource Include="Resources\page_white.png" />
+    <Resource Include="Resources\folder_page_white.png" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Resource Include="SqlExport.ico" />
+    <EmbeddedResource Include="Resources\database_add.png" />
+    <EmbeddedResource Include="Resources\replace.png" />
+    <Resource Include="Resources\folder_page.png" />
+    <Resource Include="Resources\find.png" />
+    <Resource Include="Resources\script_delete.png" />
+    <Resource Include="Resources\script_save.png" />
+    <Resource Include="Resources\script_add.png" />
+    <SplashScreen Include="Resources\SplashScreen.gif" />
+    <EmbeddedResource Include="Resources\help.png" />
+    <EmbeddedResource Include="Resources\information.png" />
+    <EmbeddedResource Include="Resources\error.png" />
+    <EmbeddedResource Include="Resources\exclamation.png" />
+    <Resource Include="Resources\database_connect.png" />
+    <EmbeddedResource Include="Resources\table_row_delete.png" />
+    <EmbeddedResource Include="Resources\table_row_insert.png" />
+    <Resource Include="Resources\table_go.png" />
+    <Resource Include="Resources\go.png" />
+    <Resource Include="Resources\stop.png" />
+    <Resource Include="Resources\table_lightning.png" />
+    <EmbeddedResource Include="Resources\disconnect.png" />
+    <Resource Include="Resources\connect.png" />
+    <Resource Include="Resources\cog.png" />
+    <Resource Include="Resources\bullet_black.png" />
+    <Resource Include="Resources\script_gear.png" />
+    <Resource Include="Resources\sum.png" />
+    <Resource Include="Resources\table_find.png" />
+    <Resource Include="Resources\database_table.png" />
+    <Resource Include="Resources\folder.png" />
+    <Resource Include="Resources\database.png" />
+    <EmbeddedResource Include="Resources\accept.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SqlExport.Common\SqlExport.Common.csproj">
+      <Project>{1fa998ea-5895-4976-9484-e83fd9599f26}</Project>
+      <Name>SqlExport.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Data.Adapters.MsSql\SqlExport.Data.Adapters.MsSql.csproj">
+      <Project>{56E1988F-AFB2-42D3-870D-759EB6F9E4C1}</Project>
+      <Name>SqlExport.Data.Adapters.MsSql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Data.Adapters.Odbc\SqlExport.Data.Adapters.Odbc.csproj">
+      <Project>{7D958F3E-995E-4A41-B33C-5BA94F388F73}</Project>
+      <Name>SqlExport.Data.Adapters.Odbc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Data.Adapters.Oracle\SqlExport.Data.Adapters.Oracle.csproj">
+      <Project>{21BAC0FA-04B3-4A5C-99DC-128C13E95BE9}</Project>
+      <Name>SqlExport.Data.Adapters.Oracle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Data.Adapters.Sybase\SqlExport.Data.Adapters.Sybase.csproj">
+      <Project>{7C4B5AF7-CFB5-4F27-B7D4-CA3E24D13EC1}</Project>
+      <Name>SqlExport.Data.Adapters.Sybase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Data.Adapters.Text\SqlExport.Data.Adapters.Text.csproj">
+      <Project>{A248BE52-5E50-465E-9C1F-3E158C00F3D7}</Project>
+      <Name>SqlExport.Data.Adapters.Text</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Editor.Scintilla\SqlExport.Editor.Scintilla.csproj">
+      <Project>{5BF32F29-612A-4F54-B683-C8802D55557B}</Project>
+      <Name>SqlExport.Editor.Scintilla</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Export.Adapters\SqlExport.Export.Adapters.csproj">
+      <Project>{47523F16-ACB9-42E2-B5CC-48A0675DABCD}</Project>
+      <Name>SqlExport.Export.Adapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SqlExport.Extensions\SqlExport.Extensions.csproj">
+      <Project>{0FCD5B00-DB6C-481D-AE3C-8305EC72F329}</Project>
+      <Name>SqlExport.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\CommonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Options\ProgramOptionsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arrow_down.png" />
+    <Resource Include="Resources\arrow_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arrow_undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\arrow_redo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+</Project>
